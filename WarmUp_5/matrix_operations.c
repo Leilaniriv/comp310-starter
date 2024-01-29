@@ -1,6 +1,10 @@
 #include <stdio.h>
-#define row 2
+#define rows 2
 #define columns 2
+
+void addMatrices(int a[rows][columns], int b[rows][columns], int sum[rows][columns]);
+void multiplyMatrices(int a[rows][columns], int b[rows][columns], int product[rows][columns]);
+void printMatrix(int matrix[rows][columns]);
 
 
 int main (int argc, char** argv)
@@ -21,7 +25,7 @@ int main (int argc, char** argv)
     return 0;
 }
 
-int addMatrices(int a[rows][columns], int b[rows][columns], int sum[rows][columns])
+void addMatrices(int a[rows][columns], int b[rows][columns], int sum[rows][columns])
 {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) {
@@ -30,21 +34,21 @@ int addMatrices(int a[rows][columns], int b[rows][columns], int sum[rows][column
     }
 }
 
-int multiplyMatrices(int a[rows][columns], int b[rows][columns], int product[rows][columns])
+void multiplyMatrices(int a[rows][columns], int b[rows][columns], int product[rows][columns])
 {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) {
-            for (int k = 0; k < a[0].length; k++) {
+            for (int k = 0; k < columns; k++) {
                 product[i][j] += a[i][k] * b[k][j];
             }
         }
     }
 }
 
-int printMatrix(int matrix[rows][columns])
+void printMatrix(int matrix[rows][columns])
 {
-    for (int i = 0; i < ROWS; i++) {
-        for (int j = 0; j < COLS; j++) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
             printf("%d ", matrix[i][j]);
         }
     }

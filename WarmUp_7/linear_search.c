@@ -4,7 +4,10 @@ int main (int argc, char** argv)
 {
     int array[] = {1, 4, 7, 9, 12};
     int target = 9;
-    int index = linearSearch(array, target);
+    int size = sizeof(array) / sizeof(array[0]);
+
+    int index = linearSearch(array, size, target);
+    
 
      if (index != -1) {
         printf("Element found at index: %d\n", index);
@@ -15,9 +18,8 @@ int main (int argc, char** argv)
     return 0;
 }
 
-int linearSearch(int arr[], int target){
-    int length = sizeof(arr) / sizeof(arr[0]);
-    for (int i = 0; i < length; i++) {
+int linearSearch(int arr[], int size, int target){
+    for (int i = 0; i < size; i++) {
         if (arr[i] == target) {
             return i;
         }
